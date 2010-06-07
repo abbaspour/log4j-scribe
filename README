@@ -1,1 +1,3 @@
 Scribe Appender for Log4j
+
+See src/test/resources/log4j.properties for sample usage.

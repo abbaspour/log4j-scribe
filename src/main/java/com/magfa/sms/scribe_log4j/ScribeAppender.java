@@ -19,10 +19,12 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-/*
-* A Log4j Appender that writes log entries to a Scribe server.
-* By default the Scribe server is expected to run on localhost, port 1463.
-*/
+/**
+ * A Log4j Appender that writes log entries to a Scribe server.
+ * By default the Scribe server is expected to run on localhost, port 1463.
+ *
+ * @author Amin Abbaspour abbaspour@magfa.com
+ */
 @SuppressWarnings({"UnusedDeclaration"})
 public class ScribeAppender extends DailyRollingFileAppender {
 
@@ -86,6 +88,7 @@ public class ScribeAppender extends DailyRollingFileAppender {
     * Activates this Appender by opening
     * a transport to the Scribe server.
     */
+
     @Override
     public void activateOptions() {
         super.activateOptions();
@@ -126,6 +129,7 @@ public class ScribeAppender extends DailyRollingFileAppender {
     /*
     * Appends a log message to Scribe
     */
+
     @Override
     public void append(LoggingEvent event) {
 

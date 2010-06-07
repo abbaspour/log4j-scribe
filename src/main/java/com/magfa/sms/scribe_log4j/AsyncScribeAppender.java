@@ -4,6 +4,9 @@ import org.apache.log4j.AsyncAppender;
 
 import java.io.IOException;
 
+/**
+ * Note: This is not ready yet!
+ */
 public class AsyncScribeAppender extends AsyncAppender {
 
     private String hostname;
