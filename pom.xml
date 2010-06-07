@@ -1,0 +1,80 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.magfa.sms</groupId>
+    <artifactId>log4j-scribe</artifactId>
+    <version>0.1.1</version>
+
+    <name>log4j-scribe</name>
+    <packaging>jar</packaging>
+    <description>Scribe Appender for Log4j</description>
+
+    <distributionManagement>
+        <repository>
+            <id>magfa-repo</id>
+            <name>magfa-repo</name>
+            <url>http://192.168.0.2/artifactory-2.0.1/libs-releases-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>magfa-repo</id>
+            <name>magfa-repo</name>
+            <url>http://192.168.0.2/artifactory-2.0.1/libs-snapshots-local</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache</groupId>
+            <artifactId>libthrift</artifactId>
+            <version>20080411</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.facebook</groupId>
+            <artifactId>libfb303</artifactId>
+            <version>20080411</version>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>[1.2.14,]</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>[4.4,]</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-webdav</artifactId>
+                <version>1.0-beta-2</version>
+            </extension>
+        </extensions>
+
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                    <debug>true</debug>
+                    <optimize>false</optimize>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+        <!--
+            vim:ts=4:ai
+        -->
