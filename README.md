@@ -1,10 +1,12 @@
 Scribe Appender for Log4j
 =========================
 
-See src/test/resources/log4j.properties for sample usage.
+***
+Usage
+-----
 
 This appender _extends_ Log4j standard *DailyRollingFileAppender* and writes back to file whenever connection to scribe server is lost.
-Scriber Appender tries to reconnect to server if the connection is lost.
+Scribe Appender tries to reconnect to server if the connection is lost.
 
 Please note that in this version only sync appender works. Will enable async appender in close future.
 
@@ -22,3 +24,45 @@ Sample Usage (inside _log4j.properties_):
     log4j.appender.scribe.File=/tmp/scribe-test-backup.log
     log4j.appender.scribe.DatePattern='.'yyyy-MM-dd
 
+***
+Scribe Setup
+------------
+Sample Scribe config format (_scribe.conf_)
+
+    port=1463
+    max_msg_per_second=2000000
+    check_interval=3
+    
+    <store>
+        category=system*
+        type=buffer
+
+        target_write_size=20480
+        max_write_interval=1
+        buffer_send_rate=2
+        retry_interval=30
+        retry_interval_range=10
+
+        <primary>
+            type=file
+            fs_type=std
+            file_path=/var/log/gw/system
+            base_filename=thisisoverwritten
+            max_size=1000000000
+            add_newlines=0
+            rotate_period=daily
+            rotate_hour=0
+            rotate_minute=10
+        </primary>
+
+        <secondary>
+            type=file
+            fs_type=std
+            file_path=/tmp
+            base_filename=thisisoverwritten
+            max_size=3000000000
+            rotate_period=daily
+            rotate_hour=0
+            rotate_minute=10
+        </secondary>
+    </store>
