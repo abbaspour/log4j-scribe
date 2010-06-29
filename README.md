@@ -77,7 +77,8 @@ Note: Ubuntu 10.04 uses Boost 1.40 so there is no need to build the latest versi
 Required Packages
 -----------------
 
-	sudo aptitude install build-essential autoconf libboost-dev g++ make flex bison libtool mono-gmcs libevent-dev libboost-filesystem-dev libboost-system-dev python-dev git-core sun-java6-jdk
+	sudo aptitude install build-essential autoconf libboost-dev g++ make flex bison libtool mono-gmcs libevent-dev \
+	libboost-filesystem-dev libboost-system-dev python-dev git-core sun-java6-jdk
 
 
 Build and Install Thrift
@@ -153,7 +154,8 @@ Scribe init.d Script
 	
 	start() {
 	        log_daemon_msg "Starting Scribe"
-	        if start-stop-daemon -v -b -m --oknodo -c $user --start --quiet --pidfile "$pid_dir/scribe.pid" --exec /usr/bin/env -- $run; then
+	        if start-stop-daemon -v -b -m --oknodo -c $user --start --quiet --pidfile "$pid_dir/scribe.pid" \
+			--exec /usr/bin/env -- $run; then
 	            log_end_msg 0
 	        else
 	            log_end_msg 1
